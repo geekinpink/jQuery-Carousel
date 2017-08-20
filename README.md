@@ -16,7 +16,7 @@
 2. 相关的javasript代码:
 ```
 <script src="//code.jquery.com/jquery-2.1.2.min.js"></script>
-<script src="/path/to/carousel.js"></script> <!-- but with the right path! -->
+<script src="../dist/carousel.js"></script> 
 <script>$(function() { $('.banner').carousel()  })</script>
 ```
 3. 支持配置参数
@@ -31,3 +31,4 @@ $('.banner').carousel({
         click:null//钩子函数，点击事件发生
     })
 ```
+配置参数默认为上，可自行传递参数覆盖默认参数。
