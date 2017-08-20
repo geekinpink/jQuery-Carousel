@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .banner {
+            margin: 50px auto;
+            width: 340px;
+            height: 340px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        a.carousel-arrow {
+            position: absolute;
+            top: 50%;
+            line-height: 50px;
+            text-align: center;
+            margin-top: -25px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            height: 50px;
+            width: 30px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        a.carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        a.carousel-arrow.left {
+            left: 0;
+        }
+
+        a.carousel-arrow.right {
+            right: 0;
+        }
+
+        ul.carousel-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            width: 100px;
+            margin-left: -50px;
+            z-index: 10;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, .7);
+        }
+
+        ul.carousel-indicator li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            float: left;
+            margin: 5px;
+        }
+
+        ul.carousel-indicator li.on {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <ul class="box-inner">
+        <li><img src="img/img1.JPEG"></li>
+        <li><img src="img/img2.JPEG"></li>
+        <li><img src="img/img3.JPEG"></li>
+        <li><img src="img/img4.JPEG"></li>
+    </ul>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
+<script src="../dist/carousel.js"></script>
+<script>
+    var banner = $(".banner").carousel({
+        effect:1,
+        change: function (index) {
+            $(".carousel-indicator li").removeClass("on").eq(index).addClass("on");
+        },
+        click:function (index) {
+            console.log("item"+index+" clicked");
+        }
+    });
+    $(".carousel-indicator li").click(function () {
+        banner.data("carousel").switchTo($(this).index());
+    });
+
+</script>
+</body>
+</html>
